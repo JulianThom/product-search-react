@@ -7,31 +7,39 @@ class Results extends Component {
     super(props);
     this.state = {
       foundProducts: this.props.products,
+      ready: false
     };
   }
 
   componentWillReceiveProps = (nextProps) => {
-   let foundProducts = nextProps.products.filter(product => {
+   const foundProducts = nextProps.products.filter(product => {
      return product.name.toLowerCase().match(nextProps.query.toLowerCase()) ||
      product.description.toLowerCase().match(nextProps.query.toLowerCase())
    })
    this.setState ({
-     foundProducts: foundProducts
+     foundProducts: foundProducts,
+     ready: true
    })
  }
 
   render() {
+
+    const {
+      foundProducts
+    } = this.state
+
+    const counter = foundProducts.length
+
     return (
       <div className="results">
         <br/>
         <div>
             <small>
-              {this.state.foundProducts.length }
-              {this.state.foundProducts.length > 1 ? ' products found' : ' product found'}
+              { this.state.ready && `${counter} product${counter > 1 ? 's' : ''} found` }
             </small>
         </div>
         {
-          this.state.foundProducts.map(function(product, i) {
+          foundProducts.map((product, i) => {
             return (
               <Result product={product} key={i} />
             )
