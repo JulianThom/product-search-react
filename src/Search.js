@@ -21,7 +21,7 @@ class Search extends Component {
   }
 
   handleQuery = (queryValue) => {
-    this.setState({query: queryValue.toLowerCase().trim()}),
+    this.setState({query: queryValue.toLowerCase().trim()})
   }
 
   render() {
