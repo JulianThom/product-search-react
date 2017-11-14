@@ -6,7 +6,7 @@ class Results extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      foundProducts: this.props.products
+      foundProducts: this.props.products,
     };
   }
 
@@ -23,6 +23,13 @@ class Results extends Component {
   render() {
     return (
       <div className="results">
+        <br/>
+        <div>
+            <small>
+              {this.state.foundProducts.length }
+              {this.state.foundProducts.length > 1 ? ' products found' : ' product found'}
+            </small>
+        </div>
         {
           this.state.foundProducts.map(function(product, i) {
             return (
