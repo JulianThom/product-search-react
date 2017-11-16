@@ -7,7 +7,7 @@ class SearchBar extends Component {
   render() {
     return (
       <div className="search-bar">
-        <input className="form-control" onChange={this.handleQuery} placeholder="Search a product" />
+        <input className="form-control" onChange={this.handleQuery} placeholder="Search a product (min. 3 characters)" />
       </div>
     );
   }

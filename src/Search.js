@@ -9,9 +9,11 @@ import axios from 'axios';
 class Search extends Component {
 
   state = {
-      query: '',
-      data: []
-    }
+    query: '',
+    data: []
+  }
+
+  timeout = null
 
   componentDidMount = () => {
     axios.get('http://localhost:3000/products')
@@ -21,7 +23,18 @@ class Search extends Component {
   }
 
   handleQuery = (queryValue) => {
-    this.setState({query: queryValue.toLowerCase().trim()})
+
+    clearTimeout(this.timeout)
+
+    const thisQueryValue = queryValue
+
+    this.timeout = setTimeout(() => {
+      if ( thisQueryValue.length >= 3 || thisQueryValue.length === 0 ) {
+        this.setState({
+          query: thisQueryValue.toLowerCase().trim()
+        })
+      }
+    }, 500);
   }
 
   render() {
