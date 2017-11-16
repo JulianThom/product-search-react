@@ -68,7 +68,7 @@ class Results extends Component {
         </div>
         {
           foundProducts.map((product, i) => {
-            if ( product.inStock == this.state.inStock ) {
+            if ( product.inStock === this.state.inStock ) {
               return <Result product={product} key={i} />
             }
             if ( this.state.all ) {
