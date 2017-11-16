@@ -1,13 +1,23 @@
 body {
 		background: #f5f5f5;
 	}
-	#app {
-		margin: 0 auto;
-		width: 500px;
-		background: white;
-		border-radius: 5px;
-		padding: 20px;
-	}
-	.result {
-		margin-bottom: 50px;
-	}
+
+#app {
+	margin: 0 auto;
+	width: 500px;
+	background: white;
+	border-radius: 5px;
+	padding: 20px;
+}
+
+.search-bar input {
+	margin-bottom: 15px;
+}
+
+.result {
+	margin-bottom: 50px;
+}
+
+.results button{
+	margin-right: 5px;
+}
